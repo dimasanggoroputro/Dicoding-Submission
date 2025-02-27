@@ -11,7 +11,7 @@ Hai! Nama saya **Dimas Anggoro Putro**, seorang siswa SMK kelas 11 jurusan RPL y
 ✅ **Memisahkan Buku Berdasarkan Status** → Buku akan dikelompokkan ke dalam rak:
 
 - **Belum selesai dibaca** 📖
-- **Selesai dibaca** 📖
+- **Selesai dibaca** 📖          
   ✅ **Memindahkan Buku Antar Rak** → Pengguna bisa memindahkan buku dari satu rak ke rak lainnya.  
   ✅ **Menghapus Buku** → Pengguna dapat menghapus buku dari daftar, termasuk dihapus dari localStorage.
 
