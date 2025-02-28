@@ -1,141 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bookshelf App</title>
 
-    <!-- Impor script kamu di sini -->
-    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+    <!-- Main JavaScript -->
+    <script defer src="assets/main.js"></script>
   </head>
-  <body>
+  <body class="bg-light">
+    <!-- Navbar -->
     <header>
-      <h1>Bookshelf App</h1>
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Bookshelf</a>
+          <button
+            class="navbar-toggler mb-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <button
+                type="button"
+                class="btn btn-primary me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                + Tambah Buku
+              </button>
+
+              <form class="d-flex mt-2 mt-lg-0" id="searchBook">
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  placeholder="Cari Buku"
+                  id="searchBookTitle"
+                />
+                <button class="btn btn-success" type="submit">Cari</button>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
-    <main>
-      <div class="left">
-        <section>
-          <h2>Tambah Buku Baru</h2>
-          <form id="bookForm" data-testid="bookForm">
-            <div>
-              <label for="bookFormTitle">Judul</label>
-              <input
-                id="bookFormTitle"
-                type="text"
-                required
-                data-testid="bookFormTitleInput"
-              />
-            </div>
-            <div>
-              <label for="bookFormAuthor">Penulis</label>
-              <input
-                id="bookFormAuthor"
-                type="text"
-                required
-                data-testid="bookFormAuthorInput"
-              />
-            </div>
-            <div>
-              <label for="bookFormYear">Tahun</label>
-              <input
-                id="bookFormYear"
-                type="number"
-                required
-                data-testid="bookFormYearInput"
-              />
-            </div>
-            <div>
-              <label for="bookFormIsComplete">Selesai dibaca</label>
-              <input
-                id="bookFormIsComplete"
-                type="checkbox"
-                data-testid="bookFormIsCompleteCheckbox"
-              />
-            </div>
+    <!-- Modal Tambah Buku -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Tambah Buku</h5>
             <button
-              id="bookFormSubmit"
-              type="submit"
-              data-testid="bookFormSubmitButton"
-            >
-              Masukkan Buku ke rak <span>Belum selesai dibaca</span>
-            </button>
-          </form>
-        </section>
-
-        <section>
-          <h2>Cari Buku</h2>
-          <form id="searchBook" data-testid="searchBookForm">
-            <label for="searchBookTitle">Judul</label>
-            <input
-              id="searchBookTitle"
-              type="text"
-              data-testid="searchBookFormTitleInput"
-            />
-            <button
-              id="searchSubmit"
-              type="submit"
-              data-testid="searchBookFormSubmitButton"
-            >
-              Cari
-            </button>
-          </form>
-        </section>
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="bookForm">
+              <div class="mb-3">
+                <label for="bookFormTitle" class="form-label">Judul</label>
+                <input
+                  id="bookFormTitle"
+                  type="text"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bookFormAuthor" class="form-label">Penulis</label>
+                <input
+                  id="bookFormAuthor"
+                  type="text"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bookFormYear" class="form-label">Tahun</label>
+                <input
+                  id="bookFormYear"
+                  type="number"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  id="bookFormIsComplete"
+                  type="checkbox"
+                  class="form-check-input"
+                />
+                <label for="bookFormIsComplete" class="form-check-label"
+                  >Selesai Dibaca</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Tambah
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="right">
-        <section>
-          <h2>Belum selesai dibaca</h2>
-
-          <div id="incompleteBookList" data-testid="incompleteBookList">
-            <!-- 
-              Ini adalah struktur HTML untuk masing-masing buku.
-              Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-            -->
-            <div data-bookid="123123123" data-testid="bookItem">
-              <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-              <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
-              <p data-testid="bookItemYear">Tahun: 2030</p>
-              <div>
-                <button data-testid="bookItemIsCompleteButton">
-                  Selesai dibaca
-                </button>
-                <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                <button data-testid="bookItemEditButton">Edit Buku</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Selesai dibaca</h2>
-
-          <div id="completeBookList" data-testid="completeBookList">
-            <!-- 
-              Ini adalah struktur HTML untuk masing-masing buku.
-              Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-            -->
-            <div data-bookid="456456456" data-testid="bookItem">
-              <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-              <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
-              <p data-testid="bookItemYear">Tahun: 2030</p>
-              <div>
-                <button data-testid="bookItemIsCompleteButton">
-                  Selesai dibaca
-                </button>
-                <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                <button data-testid="bookItemEditButton">Edit Buku</button>
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- Main Content -->
+    <main class="container py-5 bg-white shadow rounded">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="mb-3">Belum Selesai Dibaca</h2>
+          <div id="incompleteBookList"></div>
+        </div>
+        <div class="col-md-6 mt-4 mt-md-0">
+          <h2 class="mb-3">Selesai Dibaca</h2>
+          <div id="completeBookList"></div>
+        </div>
       </div>
     </main>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

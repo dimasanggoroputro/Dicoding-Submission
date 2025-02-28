@@ -21,16 +21,20 @@ document.addEventListener("DOMContentLoaded", function () {
     bookItem.setAttribute("data-testid", "bookItem");
 
     bookItem.innerHTML = `
-        <h3 data-testid="bookItemTitle">${book.title}</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h2 data-testid="bookItemTitle" class="fw-semibold">${book.title}</h2>
         <p data-testid="bookItemAuthor">Penulis: ${book.author}</p>
         <p data-testid="bookItemYear">Tahun: ${book.year}</p>
         <div>
-          <button class="toggle" data-testid="bookItemIsCompleteButton">
+          <button class="toggle btn btn-warning" data-testid="bookItemIsCompleteButton">
             ${book.isComplete ? "Belum selesai dibaca" : "Selesai dibaca"}
           </button>
-          <button class="delete" data-testid="bookItemDeleteButton">Hapus Buku</button>
-          <button class="edit" data-testid="bookItemEditButton">Edit Buku</button>
+          <button class="delete btn btn-danger" data-testid="bookItemDeleteButton">Hapus</button>
+          <button class="edit btn btn-success" data-testid="bookItemEditButton">Edit</button>
         </div>
+      </div>
+    </div>
       `;
 
     bookItem.querySelector(".toggle").addEventListener("click", function () {
